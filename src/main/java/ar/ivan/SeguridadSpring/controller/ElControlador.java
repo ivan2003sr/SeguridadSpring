@@ -14,10 +14,16 @@ public class ElControlador {
 	
 	//Agregar mapeo a administradores
 	
-	
 	@GetMapping("/administradores")
 	public String muestraAdministradores() {
 		return "administradores";
+	}
+	
+	//Agregar mapeo a administradores
+	
+	@GetMapping("/ayudantes")
+	public String muestraAyudantes() {
+		return "ayudantes";
 	}
 	
 	@GetMapping("/acceso-denegado")

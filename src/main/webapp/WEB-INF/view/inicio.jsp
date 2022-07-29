@@ -25,11 +25,24 @@ Rol: <security:authentication property="principal.authorities"/>
 
 <br/>
 
+
+<security:authorize access="hasRole('administrador')">
 <!-- Link para administradores -->
 
 <p>
 <a href="${pageContext.request.contextPath }/administradores">Ir a zona de administradores</a>
 </p>
+
+</security:authorize>
+
+<security:authorize access="hasRole('ayudante')">
+
+<!-- Link para ayudantes -->
+
+<p>
+<a href="${pageContext.request.contextPath }/ayudantes">Ir a zona de ayudantes</a>
+</p>
+</security:authorize>
 
 <form:form	action="${pageContext.request.contextPath }/logout" method="POST">
 
