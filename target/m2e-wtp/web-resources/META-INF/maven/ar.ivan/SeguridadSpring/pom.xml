@@ -14,8 +14,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springframework.version>5.7.2</springframework.version>
-		<springsecurity.version>5.6.2</springsecurity.version>
+		<springframework.version>${springsecurity.version}</springframework.version>
+		<springsecurity.version>5.7.2</springsecurity.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -38,6 +38,8 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>5.3.13</version>
 		</dependency>
+		
+
 
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
@@ -83,6 +85,14 @@
 		</dependency>
 
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+		<dependency>
+    		<groupId>org.springframework.security</groupId>
+    		<artifactId>spring-security-taglibs</artifactId>
+    		<version>${springsecurity.version}</version>
+		</dependency>
+
+		
 		<!-- fin dependencias propias-->
 
 	</dependencies>

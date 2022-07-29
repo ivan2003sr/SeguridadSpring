@@ -19,10 +19,10 @@ public class SeguridadAppConfig extends WebSecurityConfigurerAdapter {
 		UserBuilder usuarios=User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication()
-		.withUser(usuarios.username("Ivan").password("123").roles("administrador"))
+		.withUser(usuarios.username("Ivan").password("123").roles("administrador","usuario"))
 		.withUser(usuarios.username("Evelyn").password("123456").roles("usuario"))
-		.withUser(usuarios.username("Valentín").password("456").roles("ayudante"))
-		.withUser(usuarios.username("Ailen").password("2468").roles("administrador"));
+		.withUser(usuarios.username("Valentín").password("456").roles("ayudante","usuario"))
+		.withUser(usuarios.username("Ailen").password("2468").roles("administrador","usuario"));
 		
 		
 	}
@@ -30,10 +30,16 @@ public class SeguridadAppConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().anyRequest().authenticated().and().formLogin()
+		//http.authorizeRequests().anyRequest().authenticated().and().formLogin()
+		http.authorizeRequests()
+		.antMatchers("/").hasRole("usuario")
+		.antMatchers("/administradores/**").hasRole("administrador")
+		.and().formLogin()
 		.loginPage("/miFormularioLogin")
 		.loginProcessingUrl("/autenticacionUsuario")
-		.permitAll();
+		.permitAll()
+		.and().logout().permitAll()
+		.and().exceptionHandling().accessDeniedPage("/acceso-denegado");
 	}
 	
 	

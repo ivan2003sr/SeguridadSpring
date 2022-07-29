@@ -105,6 +105,10 @@ input:focus {
 .formatoError {
 	color: red;
 }
+
+.formatoLogout {
+	color: blue;
+}
 </style>
 
 
@@ -151,6 +155,13 @@ input:focus {
 								incorrecta</strong>
 
 						</c:if>
+						
+												<c:if test="${param.logout!=null}">
+
+							<strong class="formatoLogout">Has hecho logout</strong>
+
+						</c:if>
+						
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
